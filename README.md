@@ -30,3 +30,4 @@
 ### What I did not understand
 - [ ] Beberapa fungsi syntax yang ada dalam tutorial ini. 
 - [ ] Bagaimana cara kerja @GetMapping dan @Controller?
+- [ ] Apa fungsi dari pow.xml mvnw dalam project yang kita punya?
