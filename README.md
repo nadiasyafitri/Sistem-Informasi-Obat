@@ -11,8 +11,9 @@
    Issues pada github adalah salah satu tracker yang ada pada GitHub yang berfungsi untuk mengumpulkan feedback dari user,        report software bugs dan kita bisa mengatur tugas-tugas apa yang harus kita kerjakan untuk memperbaiki sebuah masalah dalam 
    repository. Masalah yang dapat diselesaikan dengan Issues adalah menyelesaikan bugs atau error dan menyelesaikan merge        request juga.
 2. Apa perbedaan dari git merge dan merge --squash?
-   Perbedaan git merge dan merge --squash adalah 
-   
+   Perbedaan git merge dan merge --squash dijelaskan pada gambar dibawah ini:
+   ![Image description](https://help.github.com/assets/images/help/pull_requests/standard-merge-commit-diagram.png)
+   ![Image description](https://help.github.com/assets/images/help/pull_requests/commit-squashing-diagram.png)
 
 #### Spring
 3. Apa itu library & dependency?
@@ -28,3 +29,4 @@
   
 ### What I did not understand
 - [ ] Beberapa fungsi syntax yang ada dalam tutorial ini. 
+- [ ] Bagaimana cara kerja @GetMapping dan @Controller?
