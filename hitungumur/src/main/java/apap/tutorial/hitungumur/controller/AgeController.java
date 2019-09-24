@@ -22,11 +22,11 @@ public class AgeController {
             model.addAttribute("age", null);
             model.addAttribute("birthdate", "-");
         }
-        return "HitungUmurPage.html";
+        return "HitungUmurPage";
     }
 
     @GetMapping(value = "/hitung-umur")
-    public String hitungUmurWithRequestParam(
+    public String hitungUmur(
             @RequestParam(value = "birthdate")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                     Optional<LocalDate> birthdate,
