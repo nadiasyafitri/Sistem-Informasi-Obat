@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestoranInMemoryService implements RestoranService {
@@ -26,34 +27,34 @@ public class RestoranInMemoryService implements RestoranService {
     }
 
     @Override
-    public RestoranModel getRestoranByIdRestoran(String idRestoran) {
-        RestoranModel myResto = null;
+    public Optional<RestoranModel> getRestoranByIdRestoran(Long idRestoran) {
+        Optional<RestoranModel> myResto = null;
         for (int i = 0; i < listRestoran.size(); i++ ){
-            String id = listRestoran.get(i).getIdRestoran();
+            Long id = listRestoran.get(i).getIdRestoran();
             if (id.equals(idRestoran)){
-                myResto = listRestoran.get(i);
+                myResto = Optional.ofNullable(listRestoran.get(i));
             }
         }
         return myResto;
     }
 
+//    @Override
+//    public void editResto(Long idRestoran, Integer nomorTelepon) {
+//        for (int i = 0; i < listRestoran.size(); i++ ){
+//            Long id = listRestoran.get(i).getIdRestoran();
+//            if (id.equals(idRestoran)){
+//                listRestoran.get(i).setNomorTelepon(nomorTelepon);
+//            }
+//        }
+//    }
+
     @Override
-    public void editResto(String idRestoran, Integer nomorTelepon) {
-        for (int i = 0; i < listRestoran.size(); i++ ){
-            String id = listRestoran.get(i).getIdRestoran();
-            if (id.equals(idRestoran)){
-                listRestoran.get(i).setNomorTelepon(nomorTelepon);
-            }
-        }
+    public void deleteResto(Long idRestoran){
     }
 
     @Override
-    public void deleteResto(String idRestoran){
-        for (int i = 0; i < listRestoran.size(); i++ ){
-            String id = listRestoran.get(i).getIdRestoran();
-            if (id.equals(idRestoran)){
-                listRestoran.remove(i);
-            }
-        }
+    public RestoranModel changeRestoran(RestoranModel restoranModel){
+       return null;
     }
 }
+
