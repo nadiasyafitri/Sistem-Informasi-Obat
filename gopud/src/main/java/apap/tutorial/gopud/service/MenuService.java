@@ -10,5 +10,6 @@ public interface MenuService{
     List<MenuModel> findAllMenuByIdRestoran(Long idRestoran);
     Optional<MenuModel> getMenuByIdMenu(Long id);
     MenuModel changeMenu(MenuModel menu);
-    void deleteMenu(Long id);
+    void deleteMenu(MenuModel menu);
+    List<MenuModel> getListMenuOrderByHargaAsc(Long idRestoran);
 }

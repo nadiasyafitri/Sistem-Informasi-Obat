@@ -58,3 +58,20 @@ private RestoranModel restoran;
 - CascadeType.ALL adalah singkatan untuk semua operasi cascade. Semua operasi cascade akan diterapkan ke parent entity\'92s related entity. Semua setara dengan menentukan cascade DETACH, MERGE, PERSIST, REFRESH, REMOVE.
 - FetchType.EAGER akan secara default memuat semua hubungan yang terkait dengan objek tertentu yang dimuat oleh hibernate. Semua to-one relationships menggunakan FetchType.EAGER. EAGER adalah ketika semua koleksi nya diambil sepenuhnya (fully fetched) pada saat parent nya diambil.
 
+## Tutorial 3
+
+#### Pertanyaan
+
+1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2
+Yang saya pelajari dari latihan nomor 2 adalah bagaimana cara menggunakan kembali component yang sudah dibuat dan hanya mengubahnya dengan beberapa syntax dari thymeleaf yaitu th:fragment dengan menggunakan parameter. Cara saya menyelesaikannya adalah pertama saya mencari dokumentasi thymeleaf dan mempelajari terlebih dulu codenya dan mengganti tulisan "navbar" menjadi "@{content}" supaya saya bisa memasukan parameter di html yang lain.
+
+
+2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3
+
+
+3. Jelaskan perbedaan th:include dan th:replace 
+
+Perbedaan th:include dengan th:replace adalah th:replace menggantikan bagian yang ingin diganti sesuai dengan fragment yang kita inginkan. Pada th:include akan mengganti tag host dan sebagai penggantinya dia akan mengganti bagian dengan fragment yang diinginkan itu. Untuk th:include memasukkan fragmen yang ditentukan sebagai badan dari tag hostnya tetapi tidak termasuk tag fragmen.
+
+4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+Digunakan untuk form handling, menyediakan metode pengambil dan penyetel yang akan digunakan oleh kerangka kerja untuk menetapkan dan mendapatkan nilai input oleh pengguna di browser. Tujuannya untuk menambahkan object yang ada difragment ke html lain. Menggunakannya dengan th:object="${var}

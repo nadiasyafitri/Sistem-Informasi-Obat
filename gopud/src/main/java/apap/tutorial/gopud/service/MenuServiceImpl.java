@@ -48,8 +48,13 @@ public class MenuServiceImpl implements MenuService{
     }
 
     @Override
-    public void deleteMenu (Long idRestoran){
-        menuDb.deleteById(idRestoran);
+    public void deleteMenu (MenuModel menu){
+        menuDb.delete(menu);
+    }
+
+    @Override
+    public List<MenuModel> getListMenuOrderByHargaAsc(Long idRestoran){
+        return menuDb.findByRestoranIdRestoranOrderByHargaAsc(idRestoran);
     }
 
 }

@@ -46,19 +46,28 @@ public class RestoranController {
         public String view(
                 @RequestParam(value = "idRestoran") Long idRestoran, Model model){
 
-        Optional<RestoranModel> restoran = restoranService.getRestoranByIdRestoran(idRestoran);
-        if(restoran.isPresent()){
-            RestoranModel myResto = restoran.get();
-            model.addAttribute("resto", restoran);
+        RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
 
-            List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(myResto.getIdRestoran());
-            model.addAttribute("menuList", menuList);
+        List<MenuModel> menuList = menuService.getListMenuOrderByHargaAsc(restoran.getIdRestoran());
+        restoran.setListMenu(menuList);
 
-            return "view-restoran";
+        model.addAttribute("resto", restoran);
 
-        }else{
-            return "not-found";
-        }
+
+        return "view-restoran";
+
+//        Optional<RestoranModel> restoran = restoranService.getRestoranByIdRestoran(idRestoran);
+//        if(restoran.isPresent()){
+//            RestoranModel myResto = restoran.get();
+//            model.addAttribute("resto", myResto);
+//
+//            List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(myResto.getIdRestoran());
+//            model.addAttribute("menuList", menuList);
+//            return "view-restoran";
+//
+//        }else{
+//            return "not-found";
+//        }
     }
 
     @RequestMapping(value = "restoran/change/{idRestoran}", method = RequestMethod.GET)
