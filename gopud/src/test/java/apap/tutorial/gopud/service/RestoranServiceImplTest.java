@@ -80,5 +80,6 @@ public class RestoranServiceImplTest {
         assertEquals(Integer.valueOf(14022), dataFromServiceCall.getNomorTelepon());
     }
 
+
 }
 

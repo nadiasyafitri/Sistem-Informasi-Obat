@@ -94,7 +94,7 @@ public class MenuServiceImplTest {
     }
 
     @Test
-    public void whenDeleteMenuItShouldDeleteMenuData(){
+    public void whenfindAllReturnedAllData(){
         List<MenuModel> allMenuInTheDatabase = new ArrayList<>();
         for (int loop = 3; loop> 0; loop--){
             allMenuInTheDatabase.add(new MenuModel());
@@ -112,10 +112,23 @@ public class MenuServiceImplTest {
             allMenuInTheDatabase.add(new MenuModel());
         }
         when(menuService.getListMenuOrderByHargaAsc(1L)).thenReturn(allMenuInTheDatabase);
-        List<MenuModel> dataFromServiceCall = menuService.findAllMenuByIdRestoran(1L);
+        List<MenuModel> dataFromServiceCall = menuService.getListMenuOrderByHargaAsc(1L);
         assertEquals(3, dataFromServiceCall.size());
-        verify(menuDB, times(1)).findByRestoranIdRestoran(1L);
+        verify(menuDB, times(1)).findByRestoranIdRestoranOrderByHargaAsc(1L);
 
+    }
+
+    @Test
+    public void whenDeleteMenuItShouldDeleteMenuData(){
+        MenuModel deletedData = new MenuModel();
+        deletedData.setId((long)1);
+        deletedData.setNama("Pie");
+        deletedData.setDurasiMasak(900);
+        deletedData.setHarga(BigInteger.valueOf(200));
+        deletedData.setDeskripsi("yummy");
+        when(menuService.getMenuByIdMenu(1L)).thenReturn(Optional.of(deletedData));
+        menuService.deleteMenu(deletedData);
+        verify(menuDB, times(1)).delete(deletedData);
     }
 
 
