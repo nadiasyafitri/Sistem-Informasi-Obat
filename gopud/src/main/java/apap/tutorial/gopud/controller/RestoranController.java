@@ -86,7 +86,7 @@ public class RestoranController {
     }
 
     //URL mapping viewAll
-    @RequestMapping("restoran/viewall")
+    @RequestMapping("restoran/view-all")
     public String viewall(Model model) {
 
         // Mengambil semua objek restoran model yang ada
@@ -94,7 +94,7 @@ public class RestoranController {
 
 
         // Add model restoran ke "resto" untuk dirender
-        model.addAttribute("restoList", listRestoran);
+        model.addAttribute("restoranList", listRestoran);
 
         // Return view template
         return "viewall-restoran";

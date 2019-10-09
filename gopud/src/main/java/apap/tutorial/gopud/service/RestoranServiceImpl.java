@@ -21,8 +21,13 @@ public class RestoranServiceImpl implements RestoranService{
     }
 
     @Override
-    public List<RestoranModel> getRestoranList(){
+    public List<RestoranModel> getRestoranListOrder(){
         return restoranDb.findAllByOrderByNamaAsc();
+    }
+
+    @Override
+    public List<RestoranModel> getRestoranList(){
+        return restoranDb.findAll();
     }
 
     @Override

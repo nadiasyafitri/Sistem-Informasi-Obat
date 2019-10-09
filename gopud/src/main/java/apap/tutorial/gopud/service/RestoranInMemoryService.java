@@ -27,6 +27,11 @@ public class RestoranInMemoryService implements RestoranService {
     }
 
     @Override
+    public List<RestoranModel> getRestoranListOrder() {
+        return null;
+    }
+
+    @Override
     public Optional<RestoranModel> getRestoranByIdRestoran(Long idRestoran) {
         Optional<RestoranModel> myResto = null;
         for (int i = 0; i < listRestoran.size(); i++ ){

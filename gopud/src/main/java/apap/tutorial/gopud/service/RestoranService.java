@@ -20,5 +20,7 @@ public interface RestoranService {
 //    void editResto(String idRestoran, Integer nomorTelepon);
 
     void deleteResto(Long idRestoran);
+
+    List<RestoranModel> getRestoranListOrder();
 }
 
