@@ -1,5 +1,6 @@
 package apap.tutorial.gopud.service;
 import apap.tutorial.gopud.model.MenuModel;
+import apap.tutorial.gopud.model.RestoranModel;
 import apap.tutorial.gopud.repository.MenuDB;
 import apap.tutorial.gopud.repository.RestoranDB;
 import apap.tutorial.gopud.service.RestoranService;
@@ -10,11 +11,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import javax.validation.constraints.Null;
+import java.awt.*;
 import java.math.BigInteger;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -93,6 +94,12 @@ public class MenuServiceImplTest {
         assertEquals("ayam goreng", dataFromServiceCall.getDeskripsi());
     }
 
+    @Test(expected = NullPointerException.class)
+    public void whenNull(){
+        MenuModel updateddata = null;
+        menuService.changeMenu(updateddata);
+    }
+
     @Test
     public void whenfindAllReturnedAllData(){
         List<MenuModel> allMenuInTheDatabase = new ArrayList<>();
@@ -130,6 +137,7 @@ public class MenuServiceImplTest {
         menuService.deleteMenu(deletedData);
         verify(menuDB, times(1)).delete(deletedData);
     }
+
 
 
 
