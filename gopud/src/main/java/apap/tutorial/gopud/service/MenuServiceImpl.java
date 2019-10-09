@@ -57,4 +57,9 @@ public class MenuServiceImpl implements MenuService{
         return menuDb.findByRestoranIdRestoranOrderByHargaAsc(idRestoran);
     }
 
+    @Override
+    public List<MenuModel> getMenuList(){
+        return menuDb.findAll();
+    }
+
 }

@@ -11,4 +11,5 @@ public interface MenuDB extends JpaRepository<MenuModel, Long> {
     Optional<MenuModel> findById(Long id);
     List<MenuModel> findByRestoranIdRestoranOrderByHargaAsc(Long restoranId);
     void delete(MenuModel menu);
+    List<MenuModel> findAll();
 }
