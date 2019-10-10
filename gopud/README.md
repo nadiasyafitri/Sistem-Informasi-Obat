@@ -58,7 +58,7 @@ private RestoranModel restoran;
 - CascadeType.ALL adalah singkatan untuk semua operasi cascade. Semua operasi cascade akan diterapkan ke parent entity\'92s related entity. Semua setara dengan menentukan cascade DETACH, MERGE, PERSIST, REFRESH, REMOVE.
 - FetchType.EAGER akan secara default memuat semua hubungan yang terkait dengan objek tertentu yang dimuat oleh hibernate. Semua to-one relationships menggunakan FetchType.EAGER. EAGER adalah ketika semua koleksi nya diambil sepenuhnya (fully fetched) pada saat parent nya diambil.
 
-## Tutorial 3
+## Tutorial 4
 
 #### Pertanyaan
 
@@ -67,7 +67,7 @@ Yang saya pelajari dari latihan nomor 2 adalah bagaimana cara menggunakan kembal
 
 
 2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3
-
+Pada latihan 3 ini mengimplementasikan expression iteration. Cara menyelesaikan latihan nomor 3 adalah dengan menambahkan method untuk add row dan delete row pada Menu Controller serta mengedit file html form add menu. Selain itu, di Menu Controller mengimplementasikan ArrayList untuk menyimpan menu model di dalam ArrayList. Hal ini dilakukan untuk mengiterasikan isi list yang sudah dibuat untuk submit list yang diisi. Expression iteration dan page title diimplementasikan di file html form add menu untuk menampilkan tabel isi menu.
 
 3. Jelaskan perbedaan th:include dan th:replace 
 
@@ -75,3 +75,22 @@ Perbedaan th:include dengan th:replace adalah th:replace menggantikan bagian yan
 
 4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
 Digunakan untuk form handling, menyediakan metode pengambil dan penyetel yang akan digunakan oleh kerangka kerja untuk menetapkan dan mendapatkan nilai input oleh pengguna di browser. Tujuannya untuk menambahkan object yang ada difragment ke html lain. Menggunakannya dengan th:object="${var}
+
+## Tutorial 5
+
+#### Pertanyaan
+
+1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and
+then.
+
+Disini saya hanya menggunakan when, yaitu saat membuat aturan yang ada, yaitu mengambil store id 1 yang harusnya berisi dummy data. 
+
+2. Jelaskan perbedaan line coverage dan logic coverage.
+
+Line coverage berfungsi untuk mengukur banyaknya pernyataan yang diambil, pernyataan tersebut berupa baris kode tidak termasuk komentar, kondisional, dan lain-lain. Logic Coverage melakukan pengujian pada struktur internal kode yang berupa logical expressions yang ada pada kode. Sehingga perbedaannya adalah line coverage menguji per baris dari kode yang sudah dibuat sedangkan logic coverage menguji decision yang terdapat pada program.
+
+3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa
+seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
+terjadi?
+
+Idealnya lebih baik jika membuat unit test terlebih dahulu sehingga kita tidak perlu khawatir code yang kita buat tidak sesuai dengan requirements pada awalnya. Dengan membuat Unit Test terlebih dahulu juga mengurangi kemungkinan error pada program. Jika urutannya dibalik, maka ada kemungkinan saat kita baru buat unit testnya ternyata semua code kita tidak sesuai dengan unit test yang kita buat sehingga banyak yang harus kita rombak saat sudah jadi.
