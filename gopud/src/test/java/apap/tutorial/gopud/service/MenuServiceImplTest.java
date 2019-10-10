@@ -97,6 +97,11 @@ public class MenuServiceImplTest {
     @Test(expected = NullPointerException.class)
     public void whenNull(){
         MenuModel updateddata = null;
+        updateddata.setId(null);
+        updateddata.setNama("makanan");
+        updateddata.setDurasiMasak(90);
+        updateddata.setDeskripsi("hehe");
+        updateddata.setHarga(BigInteger.valueOf(7000));
         menuService.changeMenu(updateddata);
     }
 
