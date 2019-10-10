@@ -80,11 +80,6 @@
                     </goals>
                 </execution>
             </executions>
-				<configuration>
-					<excludes>
-						<exclude> apap/tutorial/gopud/*</exclude>
-					</excludes>
-				</configuration>
             </plugin>
 		</plugins>
 	</build>
