@@ -80,6 +80,12 @@
                     </goals>
                 </execution>
             </executions>
+				<configuration>
+					<excludes>
+						<exclude>**/*GopudApplication.*</exclude>
+						<exclude>**/*GopudApplication$*.*</exclude>
+					</excludes>
+				</configuration>
             </plugin>
 		</plugins>
 	</build>

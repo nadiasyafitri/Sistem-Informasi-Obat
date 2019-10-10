@@ -85,6 +85,7 @@ public class MenuServiceImplTest {
         updatedData.setDurasiMasak(14022);
         updatedData.setDeskripsi("ayam goreng");
         when(menuDB.findById(1L)).thenReturn(Optional.of(updatedData));
+        when(menuDB.save(updatedData)).thenThrow(NullPointerException.class);
         when(menuService.changeMenu(updatedData)).thenReturn(updatedData);
         MenuModel dataFromServiceCall = menuService.changeMenu(updatedData);
         assertEquals("kaefci", dataFromServiceCall.getNama());
@@ -92,17 +93,7 @@ public class MenuServiceImplTest {
         assertEquals(Long.valueOf(1), dataFromServiceCall.getId());
         assertEquals(Integer.valueOf(14022), dataFromServiceCall.getDurasiMasak());
         assertEquals("ayam goreng", dataFromServiceCall.getDeskripsi());
-    }
 
-    @Test(expected = NullPointerException.class)
-    public void whenNull(){
-        MenuModel updateddata = null;
-        updateddata.setId(null);
-        updateddata.setNama("makanan");
-        updateddata.setDurasiMasak(90);
-        updateddata.setDeskripsi("hehe");
-        updateddata.setHarga(BigInteger.valueOf(7000));
-        menuService.changeMenu(updateddata);
     }
 
     @Test
