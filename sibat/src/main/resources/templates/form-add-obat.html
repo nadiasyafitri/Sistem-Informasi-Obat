@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <title> Tambah Obat </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+    <nav th:replace="fragments/fragment :: navbar(content = 'SIBAT')"></nav>
+
+    <form>
+        <div class="form-group row">
+            <div class="col-auto">
+            <label for="nama">Nama :</label>
+            <input type="text" class="form-control" id="nama" placeholder="Nama">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+            <label for="nomorRegistrasi"> Nomor Registrasi :</label>
+            <input type="text" class="form-control" id="nomorRegistrasi" placeholder="Nomor Registrasi">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+                <label for="tanggalTerbit"> Tanggal Terbit :</label>
+                <input type="date" class="form-control" id="tanggalTerbit" placeholder="DD/MM/YYYY">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+                <label for="harga"> Harga :</label>
+                <input type="number" class="form-control" id="harga" placeholder="Harga">
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label for="bentuk">Bentuk: </label>
+                <select class="custom-select mr-sm-2" id="bentuk">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label for="jenis">Jenis: </label>
+                <select class="custom-select mr-sm-2" id="jenis">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label for="supplier">Supplier: </label>
+                <select class="custom-select mr-sm-2" id="supplier">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+            <div class="align-content-center">
+                <button type="submit" class="btn btn-primary"> Submit </button>
+            </div>
+    </form>
+
+
+</body>
