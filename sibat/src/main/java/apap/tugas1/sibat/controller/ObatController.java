@@ -44,7 +44,7 @@ public class ObatController {
 
         model.addAttribute("kodeObat", obat.getKode());
 
-        return "form-add-obat-done";
+        return "add-obat-done";
     }
 
 
