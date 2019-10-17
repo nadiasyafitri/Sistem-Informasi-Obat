@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -45,6 +46,16 @@ public class ObatController {
         model.addAttribute("kodeObat", obat.getKode());
 
         return "add-obat-done";
+    }
+
+    @RequestMapping(value = "/obat/view", method = RequestMethod.GET)
+    public String viewObatbyRegisCode(@RequestParam(value = "nomorRegistrasi", required = true) String nomorRegistrasi, Model model){
+        ObatModel obat = obatService.getObatbyNomorRegistrasi(nomorRegistrasi).get();
+
+        model.addAttribute("obatList", obat);
+
+
+        return "detail-obat";
     }
 
 

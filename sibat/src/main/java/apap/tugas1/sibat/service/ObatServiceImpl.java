@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -22,5 +23,10 @@ public class ObatServiceImpl implements ObatService {
     @Override
     public void addObat(ObatModel obat) {
         obatDb.save(obat);
+    }
+
+    @Override
+    public Optional<ObatModel> getObatbyNomorRegistrasi(String nomorRegistrasi) {
+        return obatDb.findObatModelByNomorRegistrasi(nomorRegistrasi);
     }
 }
