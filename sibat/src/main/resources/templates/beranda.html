@@ -13,34 +13,37 @@
 <br>
 <br>
 
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">No</th>
-        <th scope="col">Kode</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Harga</th>
-        <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each = "obat, iterationStatus: ${obatList}">
-        <th scope="row" th:text="${iterationStatus.count}"></th>
-        <td th:text ="${obat.kode}"> </td>
-        <td th:text="${obat.nama}"></td>
-        <td th:text="${obat.harga}"></td>
-        <td>
-            <button type="button" class="btn btn-info" >Lihat</button>
-            <button type="button" class="btn btn-dark">Ubah</button>
-            <button type="button" class="btn btn-danger">Hapus</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Kode</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "obat, iterationStatus: ${obatList}">
+            <th scope="row" th:text="${iterationStatus.count}"></th>
+            <td th:text ="${obat.kode}"> </td>
+            <td th:text="${obat.nama}"></td>
+            <td th:text="${obat.harga}"></td>
+            <td>
+                <button type="button" class="btn btn-info" >
+                    <a th:href="@{/obat/view?noReg=${nomorRegistrasi}}">Lihat</a>
+                </button>
+                <button type="button" class="btn btn-dark">Ubah</button>
+                <button type="button" class="btn btn-danger">Hapus</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--Button Submit-->
+    <button type="button" class="btn btn-dark"  style="margin: 10px">
+        <a th:href="@{/obat/tambah}" style="color: white">Tambah Obat</a>
+    </button>
 
-<form th:href="{/obat/tambah}" style="margin: 10px">
-    <button type="button" class="btn btn-dark" >Tambah Obat</button>
-</form>
 
 
 

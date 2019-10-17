@@ -36,11 +36,13 @@ public class ObatController {
         return "form-add-obat";
     }
 
-    @RequestMapping(value = "/obat/tambah", method = RequestMethod.POST)
-    public String addObatPage(@ModelAttribute ObatModel obat, Model model){
+    @RequestMapping(value = "/obat/", method = RequestMethod.POST)
+    public String addObatPageSubmit(@ModelAttribute ObatModel obat, Model model){
         obatService.addObat(obat);
 
-        model.addAttribute("obat", newObat);
+        model.addAttribute("namaObat", obat.getNama());
+
+        model.addAttribute("kodeObat", obat.getKode());
 
         return "form-add-obat-done";
     }
