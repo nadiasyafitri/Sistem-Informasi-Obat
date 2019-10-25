@@ -33,13 +33,11 @@ public class ObatModel implements Serializable {
     private String kode;
 
     @NotNull
-    @UniqueElements
     @Size(max = 255)
     @Column(name="nama", nullable = false)
     private String nama;
 
     @NotNull
-    @UniqueElements
     @Size(max = 255)
     @Column(name = "nomorRegistrasi", nullable = false)
     private String nomorRegistrasi;
@@ -54,8 +52,8 @@ public class ObatModel implements Serializable {
     @JsonIgnore
     private JenisModel jenis;
 
-    @OneToMany(mappedBy = "obat", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<GudangObatModel> listGudangObat;
+    @ManyToMany(mappedBy = "listObat")
+    private List<GudangModel> daftarGudang;
 
     @OneToMany(mappedBy = "obat", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ObatSupplierModel> listObatSupplier;
@@ -124,19 +122,19 @@ public class ObatModel implements Serializable {
         this.jenis = jenis;
     }
 
-    public List<GudangObatModel> getListGudangObat() {
-        return listGudangObat;
-    }
-
-    public void setListGudangObat(List<GudangObatModel> listGudangObat) {
-        this.listGudangObat = listGudangObat;
-    }
-
     public List<ObatSupplierModel> getListObatSupplier() {
         return listObatSupplier;
     }
 
     public void setListObatSupplier(List<ObatSupplierModel> listObatSupplier) {
         this.listObatSupplier = listObatSupplier;
+    }
+
+    public List<GudangModel> getDaftarGudang() {
+        return daftarGudang;
+    }
+
+    public void setDaftarGudang(List<GudangModel> daftarGudang) {
+        this.daftarGudang = daftarGudang;
     }
 }

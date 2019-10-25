@@ -11,35 +11,35 @@
 
     <h2 style="margin: 15px;">Tambah Obat</h2>
 
-    <form style="margin: 15px">
+    <form style="margin: 15px" th:action="@{/obat/tambah}" th:object="${obat}" method="POST">
         <div class="form-group row" >
             <div class="col-auto">
             <label for="nama">Nama :</label>
-            <input type="text" class="form-control" id="nama" placeholder="Nama">
+            <input th:field="${obat.nama}"  class="form-control" id="nama" >
             </div>
         </div>
         <div class="form-group row">
             <div class="col-auto">
             <label for="nomorRegistrasi"> Nomor Registrasi :</label>
-            <input type="text" class="form-control" id="nomorRegistrasi" placeholder="Nomor Registrasi">
+            <input th:field="${obat.nomorRegistrasi}" class="form-control" id="nomorRegistrasi" >
             </div>
         </div>
         <div class="form-group row">
             <div class="col-auto">
                 <label for="tanggalTerbit"> Tanggal Terbit :</label>
-                <input type="date" class="form-control" id="tanggalTerbit" placeholder="DD/MM/YYYY">
+                <input th:field="${obat.tanggalTerbit}"  class="form-control" id="tanggalTerbit" placeholder="DD/MM/YYYY">
             </div>
         </div>
         <div class="form-group row">
             <div class="col-auto">
                 <label for="harga"> Harga :</label>
-                <input type="number" class="form-control" id="harga" placeholder="Harga">
+                <input th:field="${obat.harga}"  class="form-control" id="harga" placeholder="Harga">
             </div>
         </div>
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
                 <label for="bentuk">Bentuk: </label>
-                <select class="custom-select mr-sm-2" id="bentuk">
+                <select th:field="${obat.bentuk}" class="custom-select mr-sm-2" id="bentuk">
                     <option selected>Choose...</option>
                     <option value="1">Cairan</option>
                     <option value="2">Kapsul</option>
@@ -50,7 +50,7 @@
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
                 <label for="jenis">Jenis: </label>
-                <select class="custom-select mr-sm-2" id="jenis">
+                <select th:field="${obat.jenis}" class="custom-select mr-sm-2" id="jenis">
                     <option selected>Choose...</option>
                     <option value="1">Generik</option>
                     <option value="2">Paten</option>
@@ -60,7 +60,7 @@
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
                 <label for="supplier">Supplier: </label>
-                <select class="custom-select mr-sm-2" id="supplier">
+                <select th:field="${obat.supplier}" class="custom-select mr-sm-2" id="supplier">
                     <option selected>Choose...</option>
                     <option value="1">PT Bundamedik</option>
                     <option value="2">PT Mandara Medika Utara</option>
@@ -77,7 +77,6 @@
         </div>
             <div class="align-content-center">
                 <button type="submit" name="save" class="btn btn-primary">
-                    <a th:href=""
                     Submit
                 </button>
             </div>

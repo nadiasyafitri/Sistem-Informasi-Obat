@@ -10,4 +10,6 @@ public interface ObatService {
     List<ObatModel> getObatList();
     void addObat(ObatModel obat);
     Optional<ObatModel> getObatbyNomorRegistrasi(String nomorRegistrasi);
+    void deleteObat(ObatModel obat);
+    void deletebyId(Long idObat);
 }

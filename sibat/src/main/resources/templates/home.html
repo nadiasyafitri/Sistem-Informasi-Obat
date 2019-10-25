@@ -9,11 +9,7 @@
 <body>
 <nav th:replace="fragments/fragment :: navbar(content = 'Daftar Obat')"></nav>
 
-<br>
-<br>
-<br>
-
-    <table class="table">
+    <table class="table" style="margin-bottom: 20px; margin-top: 30px">
         <thead class="thead-dark">
         <tr>
             <th scope="col">No</th>
@@ -31,7 +27,7 @@
             <td th:text="${obat.harga}"></td>
             <td>
                 <button type="button" class="btn btn-info" >
-                    <a th:href="@{/obat/view?noReg=${nomorRegistrasi}}">Lihat</a>
+                    <a style="color: white" th:href="@{/obat/view?noReg=${obat.nomorRegistrasi}}">Lihat</a>
                 </button>
                 <button type="button" class="btn btn-dark">Ubah</button>
                 <button type="button" class="btn btn-danger">Hapus</button>

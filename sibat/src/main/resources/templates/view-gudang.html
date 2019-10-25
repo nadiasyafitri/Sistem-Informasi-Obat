@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <title> View Gudang </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+
+    <h2 style="text-align: center; margin-top: 20px; margin-bottom: 30px" > Sistem Informasi Inventory Gudang</h2>
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "gudang, iterationStatus: ${gudangList}">
+            <th scope="row" th:text="${iterationStatus.count}"></th>
+            <td th:text ="${gudang.nama}"> </td>
+            <td th:text="${gudang.alamat}"></td>
+            <td>
+                <button type="button" class="btn btn-info" >
+                    <a>Lihat</a>
+                </button>
+                <button type="button" class="btn btn-dark">Ubah</button>
+                <button type="button" class="btn btn-danger">Hapus</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

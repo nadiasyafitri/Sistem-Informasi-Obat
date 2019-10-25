@@ -1,6 +1,8 @@
 package apap.tugas1.sibat.controller;
 
+import apap.tugas1.sibat.model.JenisModel;
 import apap.tugas1.sibat.model.ObatModel;
+import apap.tugas1.sibat.service.JenisService;
 import apap.tugas1.sibat.service.ObatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,6 +20,7 @@ public class ObatController {
     @Qualifier("obatServiceImpl")
     @Autowired
     private ObatService obatService;
+    private JenisService jenisService;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -25,19 +28,23 @@ public class ObatController {
 
         model.addAttribute("obatList", obatList);
 
-        return "beranda";
+        return "home";
     }
 
     @RequestMapping(value = "/obat/tambah", method = RequestMethod.GET)
     public String addObatFormPage(Model model){
         ObatModel newObat = new ObatModel();
+        JenisModel newJenis = new JenisModel();
+        newObat.setJenis(newJenis);
+        List<JenisModel> listJenis = jenisService.getJenisList();
+
 
         model.addAttribute("obat", newObat);
 
         return "form-add-obat";
     }
 
-    @RequestMapping(value = "/obat/", method = RequestMethod.POST)
+    @RequestMapping(value = "/obat/tambah", method = RequestMethod.POST)
     public String addObatPageSubmit(@ModelAttribute ObatModel obat, Model model){
         obatService.addObat(obat);
 
@@ -49,11 +56,10 @@ public class ObatController {
     }
 
     @RequestMapping(value = "/obat/view", method = RequestMethod.GET)
-    public String viewObatbyRegisCode(@RequestParam(value = "nomorRegistrasi", required = true) String nomorRegistrasi, Model model){
+    public String viewObatbyRegisCode(@RequestParam(value = "noReg", required = true) String nomorRegistrasi, Model model){
         ObatModel obat = obatService.getObatbyNomorRegistrasi(nomorRegistrasi).get();
 
         model.addAttribute("obatList", obat);
-
 
         return "detail-obat";
     }

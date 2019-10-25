@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "gudang")
 public class GudangModel implements Serializable {
-    @NotNull
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idGudang;
@@ -25,8 +25,12 @@ public class GudangModel implements Serializable {
     @Column(name = "alamat", nullable = false)
     private String alamat;
 
-    @OneToMany(mappedBy = "gudang", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<GudangObatModel> listGudangObat;
+    @ManyToMany
+    @JoinTable(
+            name = "gudang_obat",
+            joinColumns = @JoinColumn(name = "idGudang"),
+            inverseJoinColumns = @JoinColumn(name = "idObat" ))
+    private List<ObatModel> listObat;
 
     public Long getIdGudang() {
         return idGudang;
@@ -52,11 +56,11 @@ public class GudangModel implements Serializable {
         this.alamat = alamat;
     }
 
-    public List<GudangObatModel> getListGudangObat() {
-        return listGudangObat;
+    public List<ObatModel> getListObat() {
+        return listObat;
     }
 
-    public void setListGudangObat(List<GudangObatModel> listGudangObat) {
-        this.listGudangObat = listGudangObat;
+    public void setListObat(List<ObatModel> listObat) {
+        this.listObat = listObat;
     }
 }
