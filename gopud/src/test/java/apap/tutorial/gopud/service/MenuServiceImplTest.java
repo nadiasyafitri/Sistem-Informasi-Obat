@@ -85,7 +85,7 @@ public class MenuServiceImplTest {
         updatedData.setDurasiMasak(14022);
         updatedData.setDeskripsi("ayam goreng");
         when(menuDB.findById(1L)).thenReturn(Optional.of(updatedData));
-        when(menuDB.save(updatedData)).thenThrow(NullPointerException.class);
+            when(menuDB.save(updatedData)).thenThrow(NullPointerException.class);
         when(menuService.changeMenu(updatedData)).thenReturn(updatedData);
         MenuModel dataFromServiceCall = menuService.changeMenu(updatedData);
         assertEquals("kaefci", dataFromServiceCall.getNama());
