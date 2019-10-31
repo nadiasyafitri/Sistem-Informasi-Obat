@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface GudangDb extends JpaRepository<GudangModel, Long> {
     List<GudangModel> findAll();
     Optional<GudangModel> findById(Long aLong);
-    List<ObatModel> findObatByIdGudang(Long idGudang);
 }

@@ -62,15 +62,14 @@ public class    GudangController {
     @RequestMapping(value = "gudang/hapus/{idGudang}", method = RequestMethod.GET)
     public String deletebyId(@PathVariable Long idGudang, @ModelAttribute GudangModel gudangModel, Model model){
         GudangModel gudang = gudangService.getGudangbyId(idGudang).get();
-        List<ObatModel> obatKu = gudangService.findObatByIdGudang(idGudang);
 
-        if (obatKu.size() == 0){
-            gudangService.deleteGudang(idGudang);
-
-            model.addAttribute("gudang", gudang);
-
-            return "gudang-deleted";
-        }
+//        if (obatKu.size() == 0){
+//            gudangService.deleteGudang(idGudang);
+//
+//            model.addAttribute("gudang", gudang);
+//
+//            return "gudang-deleted";
+//        }
         return "not-delete";
     }
 

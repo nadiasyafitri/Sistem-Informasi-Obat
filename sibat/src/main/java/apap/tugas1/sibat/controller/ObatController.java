@@ -2,8 +2,10 @@ package apap.tugas1.sibat.controller;
 
 import apap.tugas1.sibat.model.JenisModel;
 import apap.tugas1.sibat.model.ObatModel;
+import apap.tugas1.sibat.model.SupplierModel;
 import apap.tugas1.sibat.service.JenisService;
 import apap.tugas1.sibat.service.ObatService;
+import apap.tugas1.sibat.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ public class ObatController {
     @Autowired
     private ObatService obatService;
     private JenisService jenisService;
+    private SupplierService supplierService;
 
     @RequestMapping("/")
     public String home(Model model) {
@@ -37,7 +40,11 @@ public class ObatController {
         JenisModel newJenis = new JenisModel();
         newObat.setJenis(newJenis);
         List<JenisModel> listJenis = jenisService.getJenisList();
-
+        List<SupplierModel> listSupplier = supplierService.getSupplierList();
+        model.addAttribute("obat", newObat);
+        model.addAttribute("jenisObat", newJenis);
+        model.addAttribute("jenisList", listJenis);
+        model.addAttribute("supplierList", listSupplier);
 
         model.addAttribute("obat", newObat);
 

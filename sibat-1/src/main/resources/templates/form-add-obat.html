@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <title> Tambah Obat </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+    <nav th:replace="fragments/fragment :: navbar(content = 'SIBAT')"></nav>
+
+    <h2 style="margin: 15px;">Tambah Obat</h2>
+
+    <form style="margin: 20px" th:action="@{/obat/tambah}" th:object="${obat}" method="POST">
+        <div class="form-group row" >
+            <input type="hidden" th:field="${obat.id}">
+            <div class="col-auto">
+            <label >Nama :</label>
+            <input th:field="${obat.nama}"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+            <label> Nomor Registrasi :</label>
+            <input th:field="${obat.nomorRegistrasi}" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+                <label > Tanggal Terbit :</label>
+                <input th:field="${obat.tanggalTerbit}" type="date" class="form-control" placeholder="DD/MM/YYYY">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-auto">
+                <label> Harga :</label>
+                <input th:field="${obat.harga}"  class="form-control" placeholder="Harga">
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label>Bentuk: </label>
+                <select name="bentuk">
+                    <option th:value="null" selected>-- Pilih Jenis --</option>
+                    <option value="Cairan">Cairan</option>
+                    <option value="Kapsul">Kapsul</option>
+                    <option value="Tablet">Tablet</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label>Jenis: </label>
+                <select th:field="*{jenis}">
+                    <option th:value="null" selected>-- Pilih Jenis --</option>
+                    <option th:each="jenisObat : ${jenisList}" th:text="${jenisObat.nama}" th:value="${jenisObat.id}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label> Supplier: </label>
+                <div style="margin: 5px" th:each="supp, iter: ${obat.listObatSupplier}">
+                <select th:field="*{listObatSupplier[__${iter.index}__].supplier}" name="supplier">
+                    <option th:each="suppr : ${supplierList}" th:value="${{suppr}}" th:text="${suppr.nama}">
+                    </option>
+                </select>
+                </div>
+                <button style="display: flex;margin: 10px;" type="submit" th:name="addRow" class="btn btn-secondary btn-sm">Tambah Supplier</button>
+            </div>
+        </div>
+            <div class="align-content-center">
+                <button type="submit" name="save" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+    </form>
+
+
+</body>

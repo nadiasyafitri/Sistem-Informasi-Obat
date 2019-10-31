@@ -9,21 +9,22 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "gudangObat")
+@Table(name = "gudang_obat")
 public class GudangObatModel implements Serializable {
+
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idGudangObat;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "gudangId", referencedColumnName = "idGudang", nullable = false)
+    @JoinColumn(name = "gudangId", referencedColumnName = "id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private GudangModel gudang;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "obatId", referencedColumnName = "idObat", nullable = false)
+    @JoinColumn(name = "obatId", referencedColumnName = "id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private ObatModel obat;

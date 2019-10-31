@@ -1,6 +1,5 @@
 package apap.tugas1.sibat.model;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,9 +10,10 @@ import java.util.List;
 @Table(name = "gudang")
 public class GudangModel implements Serializable {
 
+    @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idGudang;
+    private Long id;
 
     @NotNull
     @Size(max = 255)
@@ -22,22 +22,18 @@ public class GudangModel implements Serializable {
 
     @NotNull
     @Size(max = 255)
-    @Column(name = "alamat", nullable = false)
+    @Column(name= "alamat", nullable = false)
     private String alamat;
 
-    @ManyToMany
-    @JoinTable(
-            name = "gudang_obat",
-            joinColumns = @JoinColumn(name = "idGudang"),
-            inverseJoinColumns = @JoinColumn(name = "idObat" ))
-    private List<ObatModel> listObat;
+    @OneToMany(mappedBy = "gudang", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<GudangObatModel> listGudangobat;
 
-    public Long getIdGudang() {
-        return idGudang;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdGudang(Long idGudang) {
-        this.idGudang = idGudang;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNama() {
@@ -56,11 +52,11 @@ public class GudangModel implements Serializable {
         this.alamat = alamat;
     }
 
-    public List<ObatModel> getListObat() {
-        return listObat;
+    public List<GudangObatModel> getListGudangobat() {
+        return listGudangobat;
     }
 
-    public void setListObat(List<ObatModel> listObat) {
-        this.listObat = listObat;
+    public void setListGudangobat(List<GudangObatModel> listGudangobat) {
+        this.listGudangobat = listGudangobat;
     }
 }

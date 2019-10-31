@@ -36,9 +36,7 @@ public class GudangServiceImpl implements GudangService {
         gudangDb.deleteById(idGudang);
     }
 
-    @Override
-    public List<ObatModel> findObatByIdGudang(Long idGudang){
-        return gudangDb.findObatByIdGudang(idGudang);
-    }
+
+
 }
 
