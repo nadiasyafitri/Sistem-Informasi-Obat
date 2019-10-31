@@ -162,6 +162,9 @@ public class ObatController {
                 obatGudang.add(go.getObat());
             }
             listObat = listObat.stream().filter(obatGudang::contains).collect(Collectors.toList());
+            GudangModel gudang = gudangService.getGudangbyId(idGudang).get();
+            String namaGudang = gudang.getNama();
+            model.addAttribute("namaGudang", namaGudang);
         }
 
         List<ObatModel> obatSupplier = null;
@@ -172,6 +175,9 @@ public class ObatController {
                 obatSupplier.add(os.getObat());
             }
             listObat = listObat.stream().filter(obatSupplier::contains).collect(Collectors.toList());
+            SupplierModel supplierModel = supplierService.getSupplierbyId(idSupplier).get();
+            String namaSupp = supplierModel.getNama();
+            model.addAttribute("namaSupplier",namaSupp);
         }
 
         if(idJenis != null){

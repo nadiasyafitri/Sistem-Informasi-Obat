@@ -81,14 +81,8 @@ public class GudangController {
             gudangMeds2.add(obs);
         }
 
-//        List<ObatModel> notAvailMed = new ArrayList<ObatModel>();
-
-
         availableMed.removeAll(gudangMeds2);
-//        Integer size = gudangObat.size();
         model.addAttribute("size", gudangMeds.size());
-
-//        List<ObatModel> obatList = obatService.getObatList();
         model.addAttribute("obatList", availableMed);
 
         if (gudangMeds2.contains(obat)){
