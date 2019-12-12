@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <title> Detail Gudang </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+
+    <h2 style="margin-top: 30px; margin-bottom: 20px; text-align: center"> Detail Gudang</h2>
+    <table align="center">
+        <tr>
+        <th>Nama</th>
+        <td th:text="${gudang.nama}"></td>
+    </tr>
+    <tr>
+        <th>Alamat</th>
+        <td th:text="${gudang.alamat}"></td>
+    </tr>
+    <tr>
+        <th>Jumlah Obat: </th>
+        <td th:text="${size}"></td>
+    </tr>
+    </table>
+    <div align="center">
+    <form style="align-items: center" th:object="${gudang}" th:action="@{/gudang/tambah-obat}" method="POST">
+        <input th:value="${gudang.id}" name="id" hidden>
+        <select name="obat">
+            <label>-- Pilih Obat --</label>
+            <option th:each="obat : ${obatList}" th:text="${obat.nama}" th:value="${obat.id}"></option>
+        </select>
+        <button class="btn btn-dark">
+            <a style="color: white">Submit</a>
+        </button>
+    </form>
+    </div>
+    <table class="table" style="margin-top: 20px">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Kode</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Harga</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "obatGudang, iterationStatus: ${gudangObatList}">
+            <th scope="row" th:text="${iterationStatus.count}"></th>
+            <td th:text ="${obatGudang.obat.kode}"> </td>
+            <td th:text="${obatGudang.obat.nama}"></td>
+            <td th:text="${obatGudang.obat.harga}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+</html>

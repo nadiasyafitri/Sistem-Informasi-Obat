@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelaf.org">
+<head>
+    <title> Update Obat </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+<nav th:replace="fragments/fragment :: navbar(content = 'SIBAT')"></nav>
+
+<h2 style="margin: 15px;">Update Obat</h2>
+
+<form style="margin: 15px" th:action="@{/obat/ubah(id=${obat.id})}" th:object="${obat}" method="POST">
+    <div class="form-group row" >
+        <div class="col-auto">
+            <input type="hidden" th:field="${obat.id}"/>
+            <label for="nama">Nama :</label>
+            <input th:field="${obat.nama}"  class="form-control" id="nama" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-auto">
+            <label for="tanggalTerbit"> Tanggal Terbit :</label>
+            <input th:field="${obat.tanggalTerbit}" type="date" class="form-control" id="tanggalTerbit" placeholder="DD/MM/YYYY">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-auto">
+            <label for="harga"> Harga :</label>
+            <input th:field="${obat.harga}"  class="form-control" id="harga" placeholder="Harga">
+        </div>
+    </div>
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+            <label>Bentuk: </label>
+            <select th:field="${obat.bentuk}" name="bentuk">
+                <option th:value="null" selected>-- Pilih Jenis --</option>
+                <option value="Cairan">Cairan</option>
+                <option value="Kapsul">Kapsul</option>
+                <option value="Tablet">Tablet</option>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" th:field="${obat.jenis}">
+        <button type="submit" name="save" class="btn btn-primary">
+            Submit
+        </button>
+</form>
+
+
+</body>
